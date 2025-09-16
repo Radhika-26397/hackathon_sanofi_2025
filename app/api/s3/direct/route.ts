@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic'
 
 export async function POST(req: NextRequest) {
   try {
-    const bucket = process.env.S3_UPLOAD_BUCKET
+    const bucket = "kbr920804837659"
     if (!bucket) return NextResponse.json({ error: 'S3_UPLOAD_BUCKET not configured' }, { status: 500 })
 
     const formData = await req.formData()
