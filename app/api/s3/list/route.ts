@@ -15,8 +15,8 @@ export async function POST(req: NextRequest) {
     }
 
     // ✅ Read env vars safely at runtime
-    const bucket = (process.env.S3_UPLOAD_BUCKET ?? '').trim();
-    const region = (process.env.AWS_REGION ?? 'us-east-1').trim();
+    const bucket = "kbr920804837659"
+    const region = "us-east-1"
     const encryption = (process.env.S3_ENCRYPTION ?? '').toLowerCase() === 'true';
 
     if (!bucket) {
