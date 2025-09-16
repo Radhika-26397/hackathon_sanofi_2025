@@ -3,7 +3,7 @@
     {
       "AllowedHeaders": ["*"],
       "AllowedMethods": ["GET", "PUT", "POST", "HEAD"],
-      "AllowedOrigins": ["http://localhost:3000"],
+      "AllowedOrigins": ["http://localhost:3000","https://main.d106ujzsalnk56.amplifyapp.com/"],
       "ExposeHeaders": ["ETag"],
       "MaxAgeSeconds": 3000
     }
