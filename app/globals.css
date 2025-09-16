@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Merged theme tokens from legacy src/styles/globals.css */
+
+:root {
+	--font-size: 16px;
+	/* Brand Colors - Light Theme */
+	--background: 0 0% 100%;
+	--foreground: 240 10% 3.9%;
+	--card: 0 0% 100%;
+	--card-foreground: 240 10% 3.9%;
+	--popover: 0 0% 100%;
+	--popover-foreground: 240 10% 3.9%;
+	--primary: 262 54% 43%; /* Adopt brand purple */
+	--primary-foreground: 0 0% 100%;
+	--secondary: 270 27% 94%;
+	--secondary-foreground: 262 54% 43%;
+	--muted: 270 20% 95%;
+	/* Increase contrast for body/subtle text */
+	--muted-foreground: 240 3.8% 35%;
+	--accent: 197 61% 90%;
+	--accent-foreground: 197 60% 26%;
+	--destructive: 0 84.2% 60.2%;
+	--destructive-foreground: 0 0% 98%;
+	--border: 262 25% 85%;
+	--input: 262 25% 85%;
+	--input-background: 270 27% 96%;
+	--switch-background: 270 20% 80%;
+	--ring: 262 54% 43%;
+	--chart-1: 262 54% 43%;
+	--chart-2: 217 91% 60%;
+	--chart-3: 151 55% 40%;
+	--chart-4: 0 84% 60%;
+	--chart-5: 270 95% 75%;
+	--radius: 0.625rem;
+	--sidebar: 270 27% 96%;
+	--sidebar-foreground: 240 10% 3.9%;
+	--sidebar-primary: 262 54% 43%;
+	--sidebar-primary-foreground: 0 0% 100%;
+	--sidebar-accent: 270 27% 94%;
+	--sidebar-accent-foreground: 262 54% 43%;
+	--sidebar-border: 262 25% 85%;
+	--sidebar-ring: 262 54% 43%;
+}
+
+.dark {
+	--background: 0 0% 9%;
+	--foreground: 0 0% 98%;
+	--card: 0 0% 13%;
+	--card-foreground: 0 0% 98%;
+	--popover: 0 0% 13%;
+	--popover-foreground: 0 0% 98%;
+	--primary: 262 54% 55%;
+	--primary-foreground: 0 0% 100%;
+	--secondary: 266 32% 19%;
+	--secondary-foreground: 270 20% 85%;
+	--muted: 0 0% 20%;
+	--muted-foreground: 0 0% 72%;
+	--accent: 210 27% 20%;
+	--accent-foreground: 197 92% 75%;
+	--destructive: 0 72% 51%;
+	--destructive-foreground: 0 0% 98%;
+	--border: 262 25% 25%;
+	--input: 262 25% 25%;
+	--ring: 262 54% 55%;
+	--chart-1: 262 54% 55%;
+	--chart-2: 217 92% 75%;
+	--chart-3: 151 55% 45%;
+	--chart-4: 0 72% 51%;
+	--chart-5: 270 95% 75%;
+	--sidebar: 0 0% 13%;
+	--sidebar-foreground: 0 0% 98%;
+	--sidebar-primary: 262 54% 55%;
+	--sidebar-primary-foreground: 0 0% 100%;
+	--sidebar-accent: 266 32% 19%;
+	--sidebar-accent-foreground: 270 20% 85%;
+	--sidebar-border: 262 25% 25%;
+	--sidebar-ring: 262 54% 55%;
+}
+
+@layer base {
+	* { border-color: hsl(var(--border)); }
+	body { background-color: hsl(var(--background)); color: hsl(var(--foreground)); font-feature-settings: "rlig" 1, "calt" 1; }
+	p, li, span, label, input, textarea { color: hsl(var(--foreground)); }
+	small, .text-muted-foreground { color: hsl(var(--muted-foreground)); }
+	::selection { background: hsl(var(--primary) / 0.25); }
+}
+
+html, body { height: 100%; }
