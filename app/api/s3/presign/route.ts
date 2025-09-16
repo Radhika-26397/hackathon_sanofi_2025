@@ -10,21 +10,15 @@ export const revalidate = 0;
 export async function POST(req: NextRequest) {
   try {
     const { filename, type } = await req.json();
-    if (!filename) return NextResponse.json({ error: 'filename required' }, { status: 400 });
-
-    const bucket = 'kbr920804837659';
-    const region = 'us-east-1';
-
-    const accessKeyId = (process.env.MY_AWS_ACCESS_KEY_ID ?? '').trim();
-    const secretAccessKey = (process.env.MY_AWS_SECRET_ACCESS_KEY ?? '').trim();
-    if (!accessKeyId || !secretAccessKey) {
-      return NextResponse.json({ error: 'S3 credentials not configured' }, { status: 500 });
+    if (!filename) {
+      return NextResponse.json({ error: 'filename required' }, { status: 400 });
     }
 
-    const s3 = new S3Client({
-      region,
-      credentials: { accessKeyId, secretAccessKey },
-    });
+    const bucket = process.env.MY_BUCKET_NAME ?? 'kbr920804837659'; // use env, fallback to default
+    const region = process.env.AWS_REGION ?? 'us-east-1';
+
+    // ⚡ Do NOT pass credentials here — let AWS SDK resolve automatically
+    const s3 = new S3Client({ region });
 
     const cmd = new PutObjectCommand({
       Bucket: bucket,
@@ -35,7 +29,6 @@ export async function POST(req: NextRequest) {
     const url = await getSignedUrl(s3, cmd, { expiresIn: 120 });
     return NextResponse.json({ url, key: filename });
   } catch (e: any) {
-    // TEMP: surface the real error so we know what failed
     return NextResponse.json({ error: String(e?.message || e) }, { status: 500 });
   }
 }
