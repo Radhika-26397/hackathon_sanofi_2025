@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
     if (!filename) {
       return NextResponse.json({ error: 'filename required' }, { status: 400 });
     }
-    const bucket = process.env.S3_UPLOAD_BUCKET;
+    const bucket = process.env.S3_UPLOAD_BUCKET || "kbr920804837659"
     if (!bucket) {
       return NextResponse.json({ error: 'S3_UPLOAD_BUCKET not configured' }, { status: 500 });
     }
