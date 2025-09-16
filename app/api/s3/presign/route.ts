@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const bucket = process.env.S3_UPLOAD_BUCKET!;
+    const bucket = process.env.MY_BUCKET_NAME!;
     const region = process.env.AWS_REGION ?? "us-east-1";
     const accessKeyId = process.env.MY_AWS_ACCESS_KEY_ID;
     const secretAccessKey = process.env.MY_AWS_SECRET_ACCESS_KEY;
